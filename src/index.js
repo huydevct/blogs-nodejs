@@ -5,6 +5,8 @@ const morgan = require("morgan");
 const app = express();
 const port = 3000;
 
+const route = require('./routes/index');
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.urlencoded({
@@ -21,25 +23,10 @@ app.engine("hbs", handlebars({
 }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
-console.log('Path: ', path.join(__dirname, 'resources/views'));
 
-app.get("/", (req, res) => {
-  res.render('home');
-});
+//Ruotes init
+route(app);
 
-
-app.get("/news", (req, res) => {
-  res.render('news');
-});
-
-app.post("/search", (req, res) => {
-  console.log(req.body)
-  res.send('');
-});
-
-app.get("/search", (req, res) => {
-  res.render('search');
-});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
