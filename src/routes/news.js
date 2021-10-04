@@ -5,8 +5,8 @@ const newsController = require('../app/controllers/NewsController');
 
 // newsController.index
 
-router.use('/:slug', newsController.show);
+router.get('/:slug', newsController.show);
 
-router.use('/', newsController.index);
+router.get('/', newsController.index);
 
 module.exports = router;
