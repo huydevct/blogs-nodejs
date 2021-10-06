@@ -1,7 +1,9 @@
 <div class="mt-4">
   <div>
     <h3>Your Courses</h3>
-    <a href="/me/trash/courses">Trash</a>
+    {{#if deletedCount}}
+    <a href="/me/trash/courses">Trash ({{deletedCount}})</a>
+    {{/if}}
   </div>
 
   <table class="table mt-4">
