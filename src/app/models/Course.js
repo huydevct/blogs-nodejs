@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 
 const Course = new Schema(
     {
-        _id: { type: Number, },
+        _id: { type: Number },
         name: { type: String, required: true },
         description: { type: String },
         image: { type: String },
