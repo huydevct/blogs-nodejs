@@ -4,12 +4,11 @@ const { multipleMongooseToObject } = require('../../utils/mongoose');
 class MeController {
     //[GET] /me/stored/courses
     storedCourses(req, res, next) {
-
         let courseQuery = Course.find({});
 
-        if(req.query.hasOwnProperty('_sort')){
+        if (req.query.hasOwnProperty('_sort')) {
             courseQuery = courseQuery.sort({
-                [req.query.column]: req.query.type
+                [req.query.column]: req.query.type,
             });
         }
 

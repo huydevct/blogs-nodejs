@@ -25,7 +25,6 @@ app.use(express.json());
 
 app.use(methodOverride('_method'));
 
-
 //Custom middleware
 app.use(SortMiddleware);
 
@@ -56,17 +55,16 @@ app.engine(
                 const types = {
                     default: 'desc',
                     asc: 'desc',
-                    desc: 'asc'
+                    desc: 'asc',
                 };
-                
+
                 const icon = icons[sortType];
                 const type = types[sortType];
 
                 return `<a href="?_sort&column=${field}&type=${type}">
                             ${icon}
-                        </a>`
-
-            }
+                        </a>`;
+            },
         },
     }),
 );
