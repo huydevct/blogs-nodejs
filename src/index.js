@@ -14,6 +14,7 @@ const db = require('./config/db');
 //Connect to DB
 db.connect();
 
+//use static variable
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(
@@ -29,7 +30,7 @@ app.use(methodOverride('_method'));
 app.use(SortMiddleware);
 
 //HTTP logger
-// app.use(morgan("combined"));
+app.use(morgan("combined"));
 
 //Template engine
 app.engine(
